@@ -11,7 +11,7 @@ export const Footer: React.FC = () => {
                     </span>
                 </h2>
                 <p className="text-navy-300 mb-8 max-w-md mx-auto">
-                    Open to opportunities and collaborations. Feel free to reach out!
+                    Open to opportunities and collaborations.<br />Feel free to reach out!
                 </p>
 
                 <div className="flex justify-center gap-6 mb-10">

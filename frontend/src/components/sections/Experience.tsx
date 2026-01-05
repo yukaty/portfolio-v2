@@ -42,11 +42,11 @@ export const Experience: React.FC = () => {
                     {featuredExperiences.map((exp, index) => (
                         <div
                             key={index}
-                            className="group bg-white p-8 rounded-2xl shadow-md-2 border border-navy-100 hover:shadow-md-4 hover:border-coral-200 transition-all duration-md-medium"
+                            className="bg-white p-8 rounded-2xl shadow-md-2 border border-navy-100"
                         >
                             <div className="flex flex-col md:flex-row md:items-start justify-between mb-4">
                                 <div>
-                                    <h3 className="text-2xl font-bold text-navy-800 group-hover:text-coral-600 transition-colors duration-md-short">
+                                    <h3 className="text-2xl font-bold text-navy-800">
                                         {exp.role}
                                     </h3>
                                     <p className="text-navy-600 font-medium flex items-center gap-2 mt-1">
@@ -59,7 +59,7 @@ export const Experience: React.FC = () => {
                                 </div>
                             </div>
 
-                            <p className="text-navy-600 leading-relaxed mb-6 text-lg">
+                            <p className="text-navy-600 leading-relaxed mb-6 text-base">
                                 {exp.description}
                             </p>
 

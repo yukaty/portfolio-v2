@@ -1,5 +1,5 @@
 import React from 'react';
-import { Send, Sparkles, Bot } from 'lucide-react';
+import { Send, Sparkles, Bot, Briefcase, Users, BookOpen, HelpCircle } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 interface ChatCardProps {
@@ -15,14 +15,14 @@ export const ChatCard: React.FC<ChatCardProps> = ({ displayText }) => {
             className="relative"
         >
             {/* Main Card */}
-            <div className="bg-white rounded-3xl shadow-md-4 border border-navy-100/50 p-6 md:p-8 max-w-md mx-auto w-full relative z-10 hover:shadow-md-5 transition-shadow duration-md-long">
+            <div className="bg-white rounded-3xl shadow-md-4 border border-navy-100/50 p-6 md:p-8 max-w-md mx-auto w-full relative z-10">
                 {/* Header */}
                 <div className="flex items-center gap-3 mb-8 border-b border-navy-100 pb-4">
                     <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-coral-400 to-coral-600 flex items-center justify-center text-white shadow-md-2">
                         <Bot size={28} />
                     </div>
                     <div className="flex-1">
-                        <h3 className="font-bold text-navy-800 text-lg">Ask My AI Assistant</h3>
+                        <h3 className="font-bold text-navy-800 text-lg">Yuka's AI Assistant</h3>
                         <p className="text-xs text-navy-400 font-medium">Powered by Gemini + RAG</p>
                     </div>
                     <Sparkles className="text-coral w-5 h-5 animate-pulse-slow" />
@@ -55,19 +55,24 @@ export const ChatCard: React.FC<ChatCardProps> = ({ displayText }) => {
                 </div>
 
                 {/* Suggestions Chips */}
-                <div className="flex flex-wrap gap-2">
-                    {[
-                        "Summary of Experience",
-                        "Tech Stack",
-                        "Why hire Yuka?",
-                    ].map((chip) => (
-                        <span
-                            key={chip}
-                            className="px-4 py-2 bg-white border-2 border-coral-200 text-coral-600 text-xs font-medium rounded-lg cursor-pointer hover:bg-coral-50 hover:border-coral-300 transition-all duration-md-short shadow-md-1 hover:shadow-md-2"
-                        >
-                            {chip}
-                        </span>
-                    ))}
+                <div>
+                    <p className="text-xs text-navy-400 font-medium mb-3">Try asking:</p>
+                    <div className="grid grid-cols-2 gap-2">
+                        {[
+                            { icon: Briefcase, text: "Her Experience?" },
+                            { icon: Users, text: "Work Style?" },
+                            { icon: BookOpen, text: "Tech Insights?" },
+                            { icon: HelpCircle, text: "How It Works?" },
+                        ].map((chip) => (
+                            <span
+                                key={chip.text}
+                                className="flex items-center gap-1.5 px-3 py-2 bg-white border border-coral-200/60 text-coral-600 text-xs font-medium rounded-lg opacity-50 cursor-not-allowed"
+                            >
+                                <chip.icon className="w-3.5 h-3.5 flex-shrink-0" />
+                                <span className="whitespace-nowrap">{chip.text}</span>
+                            </span>
+                        ))}
+                    </div>
                 </div>
             </div>
 
