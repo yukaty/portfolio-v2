@@ -17,6 +17,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy source code
 COPY app/ app/
 COPY rag_docs/ rag_docs/
+COPY tests/ tests/
+COPY pytest.ini pytest.ini
 
 # Ensure directories exist
 RUN mkdir -p faiss_index

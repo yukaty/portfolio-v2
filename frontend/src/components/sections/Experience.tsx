@@ -6,7 +6,7 @@ const featuredExperiences = [
         role: 'Course Curriculum Developer',
         company: 'EdTech Company (Remote)',
         period: 'Current',
-        description: 'Design and develop production-oriented full-stack curricula. Oversee code and content reviews across curricula, maintaining engineering standards and consistency.',
+        description: 'Design and develop production-oriented full-stack courses. Oversee code and content reviews across curricula, maintaining engineering standards and consistency.',
         tech: [
             'System Design',
             'Code Review',
@@ -78,7 +78,7 @@ export const Experience: React.FC = () => {
 
                     <div className="text-center pt-8">
                         <a
-                            href="https://linkedin.com"
+                            href="https://www.linkedin.com/in/yuka-tamura/"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="inline-flex items-center gap-2 text-navy-700 font-semibold hover:text-coral-500 transition-colors duration-md-short border-b-2 border-navy-200 hover:border-coral-400 pb-1"

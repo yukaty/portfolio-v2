@@ -1,5 +1,5 @@
 import React from 'react';
-import { Github, Linkedin, Mail } from 'lucide-react';
+import { Github, Linkedin } from 'lucide-react';
 
 export const Footer: React.FC = () => {
     return (
@@ -16,7 +16,7 @@ export const Footer: React.FC = () => {
 
                 <div className="flex justify-center gap-6 mb-10">
                     <a
-                        href="https://github.com"
+                        href="https://github.com/yukaty/"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="p-4 bg-navy-700 hover:bg-coral-500 rounded-xl transition-all duration-md-medium shadow-md-2 hover:shadow-md-3 hover:-translate-y-1 group"
@@ -25,20 +25,13 @@ export const Footer: React.FC = () => {
                         <Github size={28} className="text-cream group-hover:scale-110 transition-transform duration-md-short" />
                     </a>
                     <a
-                        href="https://linkedin.com"
+                        href="https://www.linkedin.com/in/yuka-tamura/"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="p-4 bg-navy-700 hover:bg-coral-500 rounded-xl transition-all duration-md-medium shadow-md-2 hover:shadow-md-3 hover:-translate-y-1 group"
                         aria-label="LinkedIn"
                     >
                         <Linkedin size={28} className="text-cream group-hover:scale-110 transition-transform duration-md-short" />
-                    </a>
-                    <a
-                        href="mailto:hello@example.com"
-                        className="p-4 bg-navy-700 hover:bg-coral-500 rounded-xl transition-all duration-md-medium shadow-md-2 hover:shadow-md-3 hover:-translate-y-1 group"
-                        aria-label="Email"
-                    >
-                        <Mail size={28} className="text-cream group-hover:scale-110 transition-transform duration-md-short" />
                     </a>
                 </div>
 

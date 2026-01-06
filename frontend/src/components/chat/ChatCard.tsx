@@ -145,7 +145,7 @@ export const ChatCard: React.FC<ChatCardProps> = ({ initialText }) => {
                             { icon: Briefcase, text: "Her Experience?" },
                             { icon: Users, text: "Work Style?" },
                             { icon: BookOpen, text: "Tech Insights?" },
-                            { icon: HelpCircle, text: "How It Works?" },
+                            { icon: HelpCircle, text: "How This Works?" },
                         ].map((chip) => (
                             <button
                                 key={chip.text}
