@@ -4,7 +4,6 @@ Portfolio Backend - Chat Router
 import hashlib
 import time
 import uuid
-from typing import Optional
 
 from fastapi import APIRouter, HTTPException
 

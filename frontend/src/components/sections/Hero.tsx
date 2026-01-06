@@ -34,7 +34,7 @@ export const Hero: React.FC = () => {
                                     Full Stack Developer
                                 </h2>
                                 <p className="text-navy-400 font-sans">
-                                    Based in Calgary, Canada (MST)
+                                    Based in Canada
                                 </p>
                             </div>
 
@@ -49,7 +49,7 @@ export const Hero: React.FC = () => {
                     </motion.div>
 
                     {/* Right Column: AI Chat Interface */}
-                    <ChatCard displayText={displayText} />
+                    <ChatCard initialText={displayText} />
                 </div>
             </div>
         </section>

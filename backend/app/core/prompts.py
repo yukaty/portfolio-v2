@@ -35,14 +35,3 @@ Yuka is Deaf. She communicates via text, email, or LinkedIn.
 If asked about communication preferences, mention this naturally.
 """.strip()
 
-WELCOME_MESSAGE = """
-Hi! I'm Yuka's AI assistant. I can answer questions about her skills, \
-experience, and projects. What would you like to know?
-""".strip()
-
-SUGGESTED_QUESTIONS = [
-    "What's your experience with Java?",
-    "What was your largest project?",
-    "Tell me about your cloud experience",
-    "What's your documentation style?",
-]

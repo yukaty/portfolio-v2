@@ -1,5 +1,5 @@
 """
-Portfolio Backend - RAG Service (No LangChain)
+Portfolio Backend - RAG Service
 Direct implementation using FAISS and google.genai
 """
 import pickle
