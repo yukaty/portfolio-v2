@@ -11,7 +11,9 @@ class Settings(BaseSettings):
     google_api_key: str = ""
 
     # CORS
-    allowed_origins: str = "*"
+    # CORS - String containing comma-separated origins
+    # Default to empty string to encourage explicit configuration
+    allowed_origins: str = "http://localhost:5173,http://localhost:3000"
 
     # RAG Configuration
     confidence_threshold: float = 0.7

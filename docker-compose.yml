@@ -1,0 +1,54 @@
+services:
+  # Backend Service
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: portfolio-backend
+    ports:
+      - "8000:8080"
+    volumes:
+      # Hot reload for development
+      - ./backend/app:/app/app
+      - ./backend/rag_docs:/app/rag_docs
+      - ./backend/faiss_index:/app/faiss_index
+    environment:
+      - ALLOWED_ORIGINS=http://localhost:5173,http://localhost:3000
+      - CONFIDENCE_THRESHOLD=0.7
+    env_file:
+      - ./backend/.env
+    networks:
+      - portfolio-network
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://localhost:8080/health" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+
+  # Frontend Service
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: portfolio-frontend
+    ports:
+      - "5173:5173"
+    volumes:
+      # Simplify volumes for development
+      - ./frontend:/app
+      # Anonymous volume to protect container's node_modules from host override
+      - /app/node_modules
+    environment:
+      - VITE_API_URL=${VITE_API_URL:-http://localhost:8000}
+    depends_on:
+      backend:
+        condition: service_healthy
+    stdin_open: true
+    tty: true
+    networks:
+      - portfolio-network
+
+networks:
+  portfolio-network:
+    driver: bridge

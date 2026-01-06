@@ -2,7 +2,15 @@ FROM python:3.12-slim
 
 WORKDIR /app
 
-# Install dependencies
+# Install system dependencies
+# libgomp1 is required for faiss-cpu
+# curl is used for healthchecks
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    curl \
+    libgomp1 \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install Python dependencies
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
@@ -10,13 +18,11 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY app/ app/
 COPY rag_docs/ rag_docs/
 
-# Pre-build FAISS index (requires API key placeholder for imports)
-# The actual embeddings are generated at runtime, not build time
-# This just ensures the directory structure is ready
+# Ensure directories exist
 RUN mkdir -p faiss_index
 
 # Expose port
 EXPOSE 8080
 
-# Run the application
-CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8080"]
+# Run the application with hot reload
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8080", "--reload"]
