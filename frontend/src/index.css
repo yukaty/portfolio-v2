@@ -80,43 +80,6 @@
   --duration-md-long: 400ms;
 }
 
-/* Dark Mode Overrides */
-/* Note: In Tailwind 4, we use the .dark class to override our semantic tokens */
-/* Following Material Design 3 dark mode guidelines */
-.dark {
-  /* Background hierarchy with clear elevation differences */
-  --color-bg-app: #0a0f1a;               /* Darker than navy-950 for better contrast */
-  --color-bg-card: #1a2332;              /* navy-900 - elevated surface */
-  --color-bg-input: #2d3a4f;             /* navy-800 - interactive surface */
-
-  /* Text with WCAG AA compliant contrast ratios */
-  --color-text-primary: #f8f9fa;         /* Near white for primary text (>7:1 contrast) */
-  --color-text-secondary: #cbd5e1;       /* navy-300 for secondary (>4.5:1 contrast) */
-  --color-text-muted: #94a3b8;           /* navy-400 for muted (>3:1 contrast) */
-
-  /* Borders with subtle but visible contrast */
-  --color-border-primary: #334155;       /* navy-700 - more visible than navy-800 */
-  --color-border-accent: #d65d3f;        /* coral-600 - slightly desaturated */
-
-  /* Dark mode specific chat surfaces */
-  --color-chat-user-bg: #d65d3f;         /* coral-600 - solid, vibrant but not blinding */
-  --color-chat-user-text: #ffffff;       /* White for maximum contrast */
-  --color-chat-ai-bg: #334155;           /* navy-700 - clearly distinguished from card */
-  --color-chat-ai-text: #f8f9fa;         /* Consistent with primary text */
-  --color-chat-chip-bg: rgba(230, 122, 95, 0.15);  /* coral with subtle transparency */
-  --color-chat-chip-border: rgba(230, 122, 95, 0.3);
-  --color-chat-chip-text: #f9d5cc;       /* coral-200 - softer than pure coral */
-  --color-chat-chip-hover: rgba(230, 122, 95, 0.25); /* Hover state for chips */
-
-  /* Update shadows for dark mode (softer, less harsh) */
-  --shadow-md-1: 0 1px 3px rgba(0, 0, 0, 0.4), 0 1px 2px rgba(0, 0, 0, 0.2);
-  --shadow-md-2: 0 3px 6px rgba(0, 0, 0, 0.4), 0 2px 4px rgba(0, 0, 0, 0.25);
-  --shadow-md-3: 0 10px 20px rgba(0, 0, 0, 0.5), 0 3px 6px rgba(0, 0, 0, 0.3);
-  --shadow-md-4: 0 15px 25px rgba(0, 0, 0, 0.5), 0 5px 10px rgba(0, 0, 0, 0.3);
-  --shadow-md-5: 0 20px 40px rgba(0, 0, 0, 0.6), 0 8px 16px rgba(0, 0, 0, 0.4);
-}
-
-
 /* Keyframes */
 @keyframes fadeIn {
   0% {

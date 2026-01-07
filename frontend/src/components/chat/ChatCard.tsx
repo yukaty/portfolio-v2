@@ -95,7 +95,7 @@ export const ChatCard: React.FC<ChatCardProps> = ({ initialText }) => {
               <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-bg-app shrink-0 flex items-center justify-center text-coral-600 shadow-sm border border-border-primary">
                 <Bot size={20} className="sm:w-6 sm:h-6" />
               </div>
-              <div className="bg-bg-input/50 dark:bg-(--color-chat-ai-bg) text-text-primary dark:text-(--color-chat-ai-text) border border-border-primary rounded-2xl rounded-tl-none p-3 sm:p-4 text-xs sm:text-sm leading-relaxed shadow-sm">
+              <div className="bg-bg-input/50 text-text-primary border border-border-primary rounded-2xl rounded-tl-none p-3 sm:p-4 text-xs sm:text-sm leading-relaxed shadow-sm">
                 {initialText}
               </div>
             </div>
@@ -124,8 +124,8 @@ export const ChatCard: React.FC<ChatCardProps> = ({ initialText }) => {
                   </div>
                   <div
                     className={`max-w-[75%] sm:max-w-[80%] p-3 sm:p-4 text-xs sm:text-sm leading-relaxed shadow-sm rounded-2xl ${msg.role === "user"
-                      ? "bg-coral-600 text-white dark:bg-(--color-chat-user-bg) dark:text-(--color-chat-user-text) border border-coral-500/30 dark:border-coral-600/50 rounded-tr-none"
-                      : "bg-bg-input/50 dark:bg-(--color-chat-ai-bg) text-text-primary dark:text-(--color-chat-ai-text) border border-border-primary rounded-tl-none"
+                      ? "bg-coral-600 text-white border border-coral-500/30 rounded-tr-none"
+                      : "bg-bg-input/50 text-text-primary border border-border-primary rounded-tl-none"
                       }`}
                   >
                     {msg.content}
@@ -146,7 +146,7 @@ export const ChatCard: React.FC<ChatCardProps> = ({ initialText }) => {
                 <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-bg-app border border-border-primary shrink-0 flex items-center justify-center text-coral-600 shadow-sm">
                   <Bot size={20} className="sm:w-6 sm:h-6" />
                 </div>
-                <div className="bg-bg-app/50 dark:bg-(--color-chat-ai-bg) border border-border-primary rounded-2xl rounded-tl-none p-3 sm:p-4 text-text-primary dark:text-(--color-chat-ai-text) text-xs sm:text-sm shadow-sm flex items-center gap-1">
+                <div className="bg-bg-app/50 border border-border-primary rounded-2xl rounded-tl-none p-3 sm:p-4 text-text-primary text-xs sm:text-sm shadow-sm flex items-center gap-1">
                   <span
                     className="w-1.5 h-1.5 bg-coral-400 rounded-full animate-bounce"
                     style={{ animationDelay: "0ms" }}
@@ -172,15 +172,15 @@ export const ChatCard: React.FC<ChatCardProps> = ({ initialText }) => {
                 role="alert"
                 aria-live="polite"
               >
-                <AlertCircle className="w-4 h-4 sm:w-5 sm:h-5 text-amber-600 dark:text-amber-400 shrink-0 mt-0.5" />
-                <p className="text-xs sm:text-sm text-amber-800 dark:text-amber-200">
+                <AlertCircle className="w-4 h-4 sm:w-5 sm:h-5 text-amber-600 shrink-0 mt-0.5" />
+                <p className="text-xs sm:text-sm text-amber-800">
                   The AI might not have enough information about this topic. For
                   detailed questions, please{" "}
                   <a
                     href="https://linkedin.com/in/yukaty"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="underline hover:text-amber-900 dark:hover:text-amber-100 font-semibold"
+                    className="underline hover:text-amber-900 font-semibold"
                   >
                     reach out on LinkedIn
                   </a>
@@ -246,7 +246,7 @@ export const ChatCard: React.FC<ChatCardProps> = ({ initialText }) => {
                 onClick={() => handleSuggestionClick(chip.text)}
                 disabled={isLoading}
                 aria-label={`Ask: ${chip.text}`}
-                className="flex items-center gap-1 sm:gap-1.5 px-3 sm:px-4 py-2 bg-bg-card dark:bg-(--color-chat-chip-bg) border border-border-accent/30 dark:border-(--color-chat-chip-border) text-coral-600 dark:text-(--color-chat-chip-text) text-xs sm:text-sm font-semibold rounded-xl hover:bg-coral-50 dark:hover:bg-(--color-chat-chip-hover) focus:outline-none focus:ring-2 focus:ring-coral-300 dark:focus:ring-coral-500/50 transition-all duration-md-short disabled:opacity-50 disabled:cursor-not-allowed text-left shadow-sm hover:shadow-md"
+                className="flex items-center gap-1 sm:gap-1.5 px-3 sm:px-4 py-2 bg-bg-card border border-border-accent/30 text-coral-600 text-xs sm:text-sm font-semibold rounded-xl hover:bg-coral-50 focus:outline-none focus:ring-2 focus:ring-coral-300 transition-all duration-md-short disabled:opacity-50 disabled:cursor-not-allowed text-left shadow-sm hover:shadow-md"
               >
                 <chip.icon
                   className="w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0"

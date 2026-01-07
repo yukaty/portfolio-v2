@@ -76,7 +76,7 @@ export const Projects: React.FC = () => {
                                 {project.tech.map((t) => (
                                     <span
                                         key={t}
-                                        className="text-xs font-semibold text-coral-600 dark:text-coral-400 bg-bg-card border-2 border-border-accent/40 px-3 py-1.5 rounded-lg"
+                                        className="text-xs font-semibold text-coral-600 bg-bg-card border-2 border-border-accent/40 px-3 py-1.5 rounded-lg"
                                     >
                                         {t}
                                     </span>

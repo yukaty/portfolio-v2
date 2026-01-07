@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { clsx } from "clsx";
-import { ThemeToggle } from "../ThemeToggle";
 
 const navLinks = [
   { name: "Skills", href: "#skills" },
@@ -52,20 +51,16 @@ export const Navbar: React.FC = () => {
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-coral-500 to-coral-600 transition-all duration-md-medium group-hover:w-full rounded-full" />
             </a>
           ))}
-          <ThemeToggle />
         </div>
 
         {/* Mobile Menu Button */}
-        <div className="flex items-center gap-4 md:hidden">
-          <ThemeToggle />
-          <button
-            className="text-text-primary hover:text-coral-500 transition-colors duration-md-short p-2 rounded-lg hover:bg-bg-card/50"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            aria-label="Toggle menu"
-          >
-            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
-        </div>
+        <button
+          className="md:hidden text-text-primary hover:text-coral-500 transition-colors duration-md-short p-2 rounded-lg hover:bg-bg-card/50"
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          aria-label="Toggle menu"
+        >
+          {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
       </div>
 
       {/* Mobile Menu Dropdown */}
