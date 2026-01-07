@@ -28,10 +28,10 @@ const featuredExperiences = [
 
 export const Experience: React.FC = () => {
     return (
-        <section id="experience" className="py-20 bg-gradient-to-b from-cream-50 to-cream-100">
+        <section id="experience" className="py-20 bg-bg-app transition-colors duration-300">
             <div className="container mx-auto px-6">
                 <h2 className="text-4xl md:text-5xl font-sans font-bold text-center mb-12">
-                    <span className="bg-gradient-to-r from-navy-800 to-navy-600 bg-clip-text text-transparent">
+                    <span className="text-text-primary">
                         Career
                     </span>{' '}
                     <span className="text-coral-500">Highlights</span>
@@ -42,24 +42,24 @@ export const Experience: React.FC = () => {
                     {featuredExperiences.map((exp, index) => (
                         <div
                             key={index}
-                            className="bg-white p-8 rounded-2xl shadow-md-2 border border-navy-100"
+                            className="bg-bg-card p-8 rounded-2xl shadow-md-2 border border-border-primary transition-colors duration-300"
                         >
                             <div className="flex flex-col md:flex-row md:items-start justify-between mb-4">
                                 <div>
-                                    <h3 className="text-2xl font-bold text-navy-800">
+                                    <h3 className="text-2xl font-bold text-text-primary">
                                         {exp.role}
                                     </h3>
-                                    <p className="text-navy-600 font-medium flex items-center gap-2 mt-1">
+                                    <p className="text-text-secondary font-medium flex items-center gap-2 mt-1">
                                         <Briefcase size={18} className="text-coral-500" /> {exp.company}
                                     </p>
                                 </div>
-                                <div className="mt-3 md:mt-0 text-coral-600 font-medium text-sm flex items-center gap-2 px-3 py-1 bg-coral-50/50 rounded-full w-fit">
+                                <div className="mt-3 md:mt-0 text-coral-600 dark:text-coral-400 font-medium text-sm flex items-center gap-2 px-3 py-1 bg-coral-500/10 rounded-full w-fit">
                                     {exp.period !== 'Key Achievement' && <Calendar size={14} />}
                                     {exp.period}
                                 </div>
                             </div>
 
-                            <p className="text-navy-600 leading-relaxed mb-6 text-base">
+                            <p className="text-text-secondary leading-relaxed mb-6 text-base">
                                 {exp.description}
                             </p>
 
@@ -67,7 +67,7 @@ export const Experience: React.FC = () => {
                                 {exp.tech.map((t) => (
                                     <span
                                         key={t}
-                                        className="text-xs font-semibold text-navy-700 bg-navy-50 border border-navy-200 px-3 py-1.5 rounded-lg shadow-sm"
+                                        className="text-xs font-semibold text-text-primary bg-bg-app border border-border-primary px-3 py-1.5 rounded-lg shadow-sm"
                                     >
                                         {t}
                                     </span>
@@ -81,7 +81,7 @@ export const Experience: React.FC = () => {
                             href="https://www.linkedin.com/in/yuka-tamura/"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center gap-2 text-navy-700 font-semibold hover:text-coral-500 transition-colors duration-md-short border-b-2 border-navy-200 hover:border-coral-400 pb-1"
+                            className="inline-flex items-center gap-2 text-text-primary font-semibold hover:text-coral-500 transition-colors duration-md-short border-b-2 border-border-primary hover:border-coral-400 pb-1"
                         >
                             View Full History on LinkedIn <ExternalLink size={18} />
                         </a>
@@ -89,5 +89,6 @@ export const Experience: React.FC = () => {
                 </div>
             </div>
         </section>
+
     );
 };

@@ -7,10 +7,10 @@ export const Hero: React.FC = () => {
     const displayText = useTypewriter(fullText);
 
     return (
-        <section className="min-h-screen pt-24 pb-12 flex items-center justify-center bg-cream overflow-hidden relative">
+        <section className="min-h-screen pt-24 pb-12 flex items-center justify-center bg-bg-app overflow-hidden relative transition-colors duration-300">
             {/* Background Decor */}
-            <div className="absolute top-20 right-0 w-[500px] h-[500px] bg-coral/5 rounded-full blur-3xl -z-10" />
-            <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-navy/5 rounded-full blur-3xl -z-10" />
+            <div className="absolute top-20 right-0 w-[500px] h-[500px] bg-coral/10 dark:bg-coral/20 rounded-full blur-3xl -z-10" />
+            <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-text-primary/5 dark:bg-text-primary/10 rounded-full blur-3xl -z-10" />
 
             <div className="container mx-auto px-6">
                 <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
@@ -24,21 +24,21 @@ export const Hero: React.FC = () => {
                     >
                         <div className="space-y-6">
                             <h1 className="text-6xl md:text-8xl font-display leading-tight">
-                                <span className="text-navy-800">Yuka </span>
+                                <span className="text-text-primary">Yuka </span>
                                 <span className="text-coral-500">T.</span>
                             </h1>
 
                             <div className="space-y-2">
-                                <h2 className="text-3xl md:text-4xl text-navy-800 font-bold tracking-tight font-sans">
+                                <h2 className="text-3xl md:text-4xl text-text-primary font-bold tracking-tight font-sans">
                                     Full Stack Developer
                                 </h2>
-                                <p className="text-navy-500 font-sans">
+                                <p className="text-text-secondary font-sans">
                                     Based in Canada
                                 </p>
                             </div>
 
                             <div className="space-y-3">
-                                <p className="text-navy-600 text-lg md:text-xl leading-relaxed">
+                                <p className="text-text-secondary text-lg md:text-xl leading-relaxed">
                                     Building <span className="text-coral-500 font-semibold">scalable</span> systems and{' '}
                                     <span className="text-coral-500 font-semibold">clean</span> digital experiences.
                                     8+ years of expertise in Backend, Modern AI integration, and Technical Content Development.
@@ -46,6 +46,7 @@ export const Hero: React.FC = () => {
                             </div>
                         </div>
                     </motion.div>
+
 
                     {/* Right Column: AI Chat Interface */}
                     <ChatCard initialText={displayText} />

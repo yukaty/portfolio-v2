@@ -7,8 +7,9 @@ import { Projects } from './components/sections/Projects';
 
 function App() {
   return (
-    <div className="min-h-screen bg-cream font-sans text-navy antialiased">
+    <div className="min-h-screen bg-bg-app text-text-primary font-sans antialiased transition-colors duration-300">
       <Navbar />
+
       <main>
         <Hero />
         <Skills />

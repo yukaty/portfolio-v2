@@ -28,6 +28,7 @@
   --color-navy-700: #334155;
   --color-navy-800: #2d3a4f;
   --color-navy-900: #1a2332;
+  --color-navy-950: #0f172a;
   --color-navy: #2d3a4f;
   --color-navy-light: #5a6a7e;
   --color-navy-dark: #1a1a2e;
@@ -44,6 +45,16 @@
   /* Typography - Lora for elegant, spacious serif */
   --font-sans: Inter, system-ui, -apple-system, sans-serif;
   --font-display: Lora, Georgia, serif;
+
+  /* Semantic Tokens - Light (Default) */
+  --color-bg-app: var(--color-cream-100);
+  --color-bg-card: white;
+  --color-bg-input: var(--color-navy-50);
+  --color-text-primary: var(--color-navy-800);
+  --color-text-secondary: var(--color-navy-500);
+  --color-text-muted: var(--color-navy-400);
+  --color-border-primary: var(--color-navy-100);
+  --color-border-accent: var(--color-coral-200);
 
   /* Material Design 3 elevation shadows */
   --shadow-md-1: 0 1px 3px rgba(45, 58, 79, 0.12), 0 1px 2px rgba(45, 58, 79, 0.08);
@@ -69,29 +80,88 @@
   --duration-md-long: 400ms;
 }
 
+/* Dark Mode Overrides */
+/* Note: In Tailwind 4, we use the .dark class to override our semantic tokens */
+/* Following Material Design 3 dark mode guidelines */
+.dark {
+  /* Background hierarchy with clear elevation differences */
+  --color-bg-app: #0a0f1a;               /* Darker than navy-950 for better contrast */
+  --color-bg-card: #1a2332;              /* navy-900 - elevated surface */
+  --color-bg-input: #2d3a4f;             /* navy-800 - interactive surface */
+
+  /* Text with WCAG AA compliant contrast ratios */
+  --color-text-primary: #f8f9fa;         /* Near white for primary text (>7:1 contrast) */
+  --color-text-secondary: #cbd5e1;       /* navy-300 for secondary (>4.5:1 contrast) */
+  --color-text-muted: #94a3b8;           /* navy-400 for muted (>3:1 contrast) */
+
+  /* Borders with subtle but visible contrast */
+  --color-border-primary: #334155;       /* navy-700 - more visible than navy-800 */
+  --color-border-accent: #d65d3f;        /* coral-600 - slightly desaturated */
+
+  /* Dark mode specific chat surfaces */
+  --color-chat-user-bg: #d65d3f;         /* coral-600 - solid, vibrant but not blinding */
+  --color-chat-user-text: #ffffff;       /* White for maximum contrast */
+  --color-chat-ai-bg: #334155;           /* navy-700 - clearly distinguished from card */
+  --color-chat-ai-text: #f8f9fa;         /* Consistent with primary text */
+  --color-chat-chip-bg: rgba(230, 122, 95, 0.15);  /* coral with subtle transparency */
+  --color-chat-chip-border: rgba(230, 122, 95, 0.3);
+  --color-chat-chip-text: #f9d5cc;       /* coral-200 - softer than pure coral */
+  --color-chat-chip-hover: rgba(230, 122, 95, 0.25); /* Hover state for chips */
+
+  /* Update shadows for dark mode (softer, less harsh) */
+  --shadow-md-1: 0 1px 3px rgba(0, 0, 0, 0.4), 0 1px 2px rgba(0, 0, 0, 0.2);
+  --shadow-md-2: 0 3px 6px rgba(0, 0, 0, 0.4), 0 2px 4px rgba(0, 0, 0, 0.25);
+  --shadow-md-3: 0 10px 20px rgba(0, 0, 0, 0.5), 0 3px 6px rgba(0, 0, 0, 0.3);
+  --shadow-md-4: 0 15px 25px rgba(0, 0, 0, 0.5), 0 5px 10px rgba(0, 0, 0, 0.3);
+  --shadow-md-5: 0 20px 40px rgba(0, 0, 0, 0.6), 0 8px 16px rgba(0, 0, 0, 0.4);
+}
+
+
 /* Keyframes */
 @keyframes fadeIn {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }
 
 @keyframes slideUp {
-  0% { transform: translateY(20px); opacity: 0; }
-  100% { transform: translateY(0); opacity: 1; }
+  0% {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 @keyframes scaleIn {
-  0% { transform: scale(0.95); opacity: 0; }
-  100% { transform: scale(1); opacity: 1; }
+  0% {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
 /* Base styles */
 html {
   scroll-behavior: smooth;
+  /* Tailwind 4 uses @custom-variant for manual dark mode if needed, 
+     but here we are manually overriding variables which is very robust */
 }
 
 /* Respect user's motion preferences */
 @media (prefers-reduced-motion: reduce) {
+
   *,
   *::before,
   *::after {
@@ -103,19 +173,25 @@ html {
 }
 
 body {
-  background-color: var(--color-cream);
-  color: var(--color-navy);
+  background-color: var(--color-bg-app);
+  color: var(--color-text-primary);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-display);
   font-weight: 700;
 }
 
 :focus-visible {
   outline: none;
-  box-shadow: 0 0 0 2px var(--color-cream), 0 0 0 4px var(--color-coral);
+  box-shadow: 0 0 0 2px var(--color-bg-app), 0 0 0 4px var(--color-coral);
 }

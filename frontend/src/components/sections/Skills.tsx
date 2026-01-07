@@ -21,10 +21,10 @@ const skillCategories = [
 
 export const Skills: React.FC = () => {
   return (
-    <section id="skills" className="py-20 bg-white">
+    <section id="skills" className="py-20 bg-bg-card transition-colors duration-300">
       <div className="container mx-auto px-6">
         <h2 className="text-4xl md:text-5xl font-sans font-bold text-center mb-12">
-          <span className="bg-gradient-to-r from-navy-800 to-navy-600 bg-clip-text text-transparent">
+          <span className="text-text-primary">
             Technical
           </span>{" "}
           <span className="text-coral-500">Skills</span>
@@ -36,14 +36,14 @@ export const Skills: React.FC = () => {
             return (
               <div
                 key={category.title}
-                className="flex flex-col p-6 rounded-2xl bg-gradient-to-br from-cream-50 to-white border border-navy-100 shadow-md-2"
+                className="flex flex-col p-6 rounded-2xl bg-bg-app border border-border-primary shadow-md-2"
               >
                 {/* Icon and Title Section */}
                 <div className="flex items-center gap-4 mb-6">
                   <div className="flex-shrink-0 bg-gradient-to-br from-coral-400 to-coral-600 w-12 h-12 rounded-xl flex items-center justify-center shadow-md-2">
                     <Icon className="w-6 h-6 text-white" />
                   </div>
-                  <h3 className="text-2xl font-bold text-navy-800 leading-tight">
+                  <h3 className="text-2xl font-bold text-text-primary leading-tight">
                     {category.title}
                   </h3>
                 </div>
@@ -53,7 +53,7 @@ export const Skills: React.FC = () => {
                   {category.skills.map((skill) => (
                     <span
                       key={skill}
-                      className="px-3 py-1.5 bg-white text-navy-700 text-sm font-medium rounded-lg border border-navy-100 inline-flex items-center gap-1.5 shadow-sm"
+                      className="px-3 py-1.5 bg-bg-card text-text-secondary text-sm font-medium rounded-lg border border-border-primary inline-flex items-center gap-1.5 shadow-sm"
                     >
                       {skill}
                       {(skill === "AWS" || skill === "Azure") && (
@@ -68,5 +68,6 @@ export const Skills: React.FC = () => {
         </div>
       </div>
     </section>
+
   );
 };

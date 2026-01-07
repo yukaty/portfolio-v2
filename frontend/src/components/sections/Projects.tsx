@@ -23,10 +23,10 @@ const projects = [
 
 export const Projects: React.FC = () => {
     return (
-        <section id="projects" className="py-20 bg-white">
+        <section id="projects" className="py-20 bg-bg-card transition-colors duration-300">
             <div className="container mx-auto px-6">
                 <h2 className="text-4xl md:text-5xl font-sans font-bold text-center mb-12">
-                    <span className="bg-gradient-to-r from-navy-800 to-navy-600 bg-clip-text text-transparent">
+                    <span className="text-text-primary">
                         Featured
                     </span>{' '}
                     <span className="text-coral-500">Projects</span>
@@ -36,10 +36,10 @@ export const Projects: React.FC = () => {
                     {projects.map((project, index) => (
                         <div
                             key={index}
-                            className="bg-gradient-to-br from-cream-50 to-white border border-navy-100 rounded-2xl p-8 shadow-md-2"
+                            className="bg-bg-app border border-border-primary rounded-2xl p-8 shadow-md-2 flex flex-col transition-colors duration-300"
                         >
                             <div className="flex justify-between items-start mb-4">
-                                <h3 className="text-2xl font-bold text-navy-800">
+                                <h3 className="text-2xl font-bold text-text-primary">
                                     {project.title}
                                 </h3>
                                 <div className="flex gap-3">
@@ -49,7 +49,7 @@ export const Projects: React.FC = () => {
                                             target="_blank"
                                             rel="noopener noreferrer"
                                             aria-label={`View ${project.title} source code on GitHub`}
-                                            className="text-navy-500 hover:text-coral-500 transition-colors duration-md-short p-2 rounded-lg hover:bg-coral-50 focus:outline-none focus:ring-2 focus:ring-coral-400"
+                                            className="text-text-secondary hover:text-coral-500 transition-colors duration-md-short p-2 rounded-lg hover:bg-bg-card/50 focus:outline-none focus:ring-2 focus:ring-coral-400"
                                         >
                                             <Github size={22} />
                                         </a>
@@ -60,7 +60,7 @@ export const Projects: React.FC = () => {
                                             target="_blank"
                                             rel="noopener noreferrer"
                                             aria-label={`View ${project.title} live demo`}
-                                            className="text-navy-500 hover:text-coral-500 transition-colors duration-md-short p-2 rounded-lg hover:bg-coral-50 focus:outline-none focus:ring-2 focus:ring-coral-400"
+                                            className="text-text-secondary hover:text-coral-500 transition-colors duration-md-short p-2 rounded-lg hover:bg-bg-card/50 focus:outline-none focus:ring-2 focus:ring-coral-400"
                                         >
                                             <ExternalLink size={22} />
                                         </a>
@@ -68,7 +68,7 @@ export const Projects: React.FC = () => {
                                 </div>
                             </div>
 
-                            <p className="text-navy-600 mb-6 leading-relaxed min-h-[80px] text-base">
+                            <p className="text-text-secondary mb-6 leading-relaxed min-h-[80px] text-base">
                                 {project.description}
                             </p>
 
@@ -76,7 +76,7 @@ export const Projects: React.FC = () => {
                                 {project.tech.map((t) => (
                                     <span
                                         key={t}
-                                        className="text-xs font-semibold text-coral-600 bg-white border-2 border-coral-200 px-3 py-1.5 rounded-lg"
+                                        className="text-xs font-semibold text-coral-600 dark:text-coral-400 bg-bg-card border-2 border-border-accent/40 px-3 py-1.5 rounded-lg"
                                     >
                                         {t}
                                     </span>
@@ -87,5 +87,6 @@ export const Projects: React.FC = () => {
                 </div>
             </div>
         </section>
+
     );
 };
