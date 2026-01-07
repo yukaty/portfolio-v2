@@ -16,4 +16,3 @@ htmlcov/
 
 # Project specific
 faiss_index/
-rag_docs/
