@@ -7,6 +7,7 @@ export const useChat = () => {
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
     const [conversationId, setConversationId] = useState<string | undefined>(undefined);
+    const [lastConfidence, setLastConfidence] = useState<number | null>(null);
 
     const sendMessage = useCallback(async (content: string) => {
         if (!content.trim()) return;
@@ -30,6 +31,7 @@ export const useChat = () => {
 
             setMessages((prev) => [...prev, assistantMessage]);
             setConversationId(response.conversation_id);
+            setLastConfidence(response.confidence);
         } catch (err) {
             setError(err instanceof Error ? err.message : 'Failed to send message');
             console.error('Chat error:', err);
@@ -43,5 +45,6 @@ export const useChat = () => {
         isLoading,
         error,
         sendMessage,
+        lastConfidence,
     };
 };

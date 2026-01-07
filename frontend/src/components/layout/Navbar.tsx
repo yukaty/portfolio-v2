@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { clsx } from "clsx";
 
@@ -33,9 +33,9 @@ export const Navbar: React.FC = () => {
       <div className="container mx-auto px-6 flex items-center justify-between">
         <a
           href="#"
-          className="text-4xl md:text-3xl font-display font-bold transition-all duration-md-medium group"
+          className="text-4xl md:text-3xl font-display font-extrabold transition-all duration-md-medium group"
         >
-          <span className="text-navy-800">Yuka</span>
+          <span className="text-navy-800">Y</span>
           <span className="text-coral-500">T</span>
         </a>
 

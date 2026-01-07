@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import { ChatCard } from '../chat/ChatCard';
 import { useTypewriter } from '../../hooks/useTypewriter';
@@ -33,7 +32,7 @@ export const Hero: React.FC = () => {
                                 <h2 className="text-3xl md:text-4xl text-navy-800 font-bold tracking-tight font-sans">
                                     Full Stack Developer
                                 </h2>
-                                <p className="text-navy-400 font-sans">
+                                <p className="text-navy-500 font-sans">
                                     Based in Canada
                                 </p>
                             </div>

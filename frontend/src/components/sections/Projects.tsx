@@ -1,4 +1,3 @@
-import React from 'react';
 import { Github, ExternalLink } from 'lucide-react';
 
 const projects = [
@@ -49,7 +48,8 @@ export const Projects: React.FC = () => {
                                             href={project.links.github}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="text-navy-400 hover:text-coral-500 transition-colors duration-md-short p-2 rounded-lg hover:bg-coral-50"
+                                            aria-label={`View ${project.title} source code on GitHub`}
+                                            className="text-navy-500 hover:text-coral-500 transition-colors duration-md-short p-2 rounded-lg hover:bg-coral-50 focus:outline-none focus:ring-2 focus:ring-coral-400"
                                         >
                                             <Github size={22} />
                                         </a>
@@ -59,7 +59,8 @@ export const Projects: React.FC = () => {
                                             href={project.links.demo}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="text-navy-400 hover:text-coral-500 transition-colors duration-md-short p-2 rounded-lg hover:bg-coral-50"
+                                            aria-label={`View ${project.title} live demo`}
+                                            className="text-navy-500 hover:text-coral-500 transition-colors duration-md-short p-2 rounded-lg hover:bg-coral-50 focus:outline-none focus:ring-2 focus:ring-coral-400"
                                         >
                                             <ExternalLink size={22} />
                                         </a>
