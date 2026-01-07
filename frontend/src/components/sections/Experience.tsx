@@ -1,4 +1,3 @@
-import React from 'react';
 import { Briefcase, Calendar, ExternalLink } from 'lucide-react';
 
 const featuredExperiences = [
@@ -53,7 +52,7 @@ export const Experience: React.FC = () => {
                                         <Briefcase size={18} className="text-coral-500" /> {exp.company}
                                     </p>
                                 </div>
-                                <div className="mt-3 md:mt-0 text-coral-600 font-medium text-sm flex items-center gap-2 px-3 py-1 bg-coral-500/10 rounded-full w-fit">
+                                <div className="mt-3 md:mt-0 text-text-accent font-medium text-sm flex items-center gap-2 px-3 py-1 bg-coral-500/10 rounded-full w-fit">
                                     {exp.period !== 'Key Achievement' && <Calendar size={14} />}
                                     {exp.period}
                                 </div>

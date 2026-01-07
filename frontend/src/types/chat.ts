@@ -17,8 +17,9 @@ export interface Source {
 
 export interface ChatResponse {
     response: string;
+    conversation_id: string;
+    //** For monitoring and transparency (not displayed to users) **
     sources: Source[];
     confidence: number;
     has_sufficient_context: boolean;
-    conversation_id: string;
 }

@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react";
-import { Send, Sparkles, Bot, Briefcase, Smile, BookOpen, HelpCircle, User, AlertCircle, HatGlasses } from "lucide-react";
+import { Send, Sparkles, Bot, Briefcase, Smile, BookOpen, HelpCircle, User, HatGlasses } from "lucide-react";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { useChat } from "../../hooks/useChat";
 
@@ -8,7 +8,7 @@ interface ChatCardProps {
 }
 
 export const ChatCard: React.FC<ChatCardProps> = ({ initialText }) => {
-  const { messages, isLoading, error, sendMessage, lastConfidence } = useChat();
+  const { messages, isLoading, error, sendMessage } = useChat();
   const [inputValue, setInputValue] = useState("");
   const chatAreaRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -43,9 +43,6 @@ export const ChatCard: React.FC<ChatCardProps> = ({ initialText }) => {
     // Return focus to input after sending
     setTimeout(() => inputRef.current?.focus(), 100);
   };
-
-  // Low confidence threshold
-  const showConfidenceWarning = lastConfidence !== null && lastConfidence < 0.4;
 
   return (
     <motion.div
@@ -163,32 +160,6 @@ export const ChatCard: React.FC<ChatCardProps> = ({ initialText }) => {
               </motion.div>
             )}
 
-            {/* Confidence Warning */}
-            {showConfidenceWarning && !isLoading && messages.length > 0 && (
-              <motion.div
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="flex items-start gap-2 sm:gap-3 p-2.5 sm:p-3 bg-amber-500/10 border border-amber-500/20 rounded-xl"
-                role="alert"
-                aria-live="polite"
-              >
-                <AlertCircle className="w-4 h-4 sm:w-5 sm:h-5 text-amber-600 shrink-0 mt-0.5" />
-                <p className="text-xs sm:text-sm text-amber-800">
-                  The AI might not have enough information about this topic. For
-                  detailed questions, please{" "}
-                  <a
-                    href="https://linkedin.com/in/yukaty"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="underline hover:text-amber-900 font-semibold"
-                  >
-                    reach out on LinkedIn
-                  </a>
-                  .
-                </p>
-              </motion.div>
-            )}
-
             {error && (
               <p className="text-red-500 text-xs text-center" role="alert">
                 {error}
@@ -246,7 +217,7 @@ export const ChatCard: React.FC<ChatCardProps> = ({ initialText }) => {
                 onClick={() => handleSuggestionClick(chip.text)}
                 disabled={isLoading}
                 aria-label={`Ask: ${chip.text}`}
-                className="flex items-center gap-1 sm:gap-1.5 px-3 sm:px-4 py-2 bg-bg-card border border-border-accent/30 text-coral-600 text-xs sm:text-sm font-semibold rounded-xl hover:bg-coral-50 focus:outline-none focus:ring-2 focus:ring-coral-300 transition-all duration-md-short disabled:opacity-50 disabled:cursor-not-allowed text-left shadow-sm hover:shadow-md"
+                className="flex items-center gap-1 sm:gap-1.5 px-3 sm:px-4 py-2 bg-bg-card border border-border-accent/30 text-text-accent text-xs sm:text-sm font-semibold rounded-xl hover:bg-coral-50 focus:outline-none focus:ring-2 focus:ring-coral-300 transition-all duration-md-short disabled:opacity-50 disabled:cursor-not-allowed text-left shadow-sm hover:shadow-md"
               >
                 <chip.icon
                   className="w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0"

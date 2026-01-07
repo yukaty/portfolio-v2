@@ -68,7 +68,7 @@ export const Projects: React.FC = () => {
                                 </div>
                             </div>
 
-                            <p className="text-text-secondary mb-6 leading-relaxed min-h-[80px] text-base">
+                            <p className="text-text-secondary mb-6 leading-relaxed min-h-20 text-base">
                                 {project.description}
                             </p>
 
@@ -76,7 +76,7 @@ export const Projects: React.FC = () => {
                                 {project.tech.map((t) => (
                                     <span
                                         key={t}
-                                        className="text-xs font-semibold text-coral-600 bg-bg-card border-2 border-border-accent/40 px-3 py-1.5 rounded-lg"
+                                        className="text-xs font-semibold text-text-accent bg-bg-card border-2 border-border-accent/40 px-3 py-1.5 rounded-lg"
                                     >
                                         {t}
                                     </span>

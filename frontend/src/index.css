@@ -53,6 +53,7 @@
   --color-text-primary: var(--color-navy-800);
   --color-text-secondary: var(--color-navy-500);
   --color-text-muted: var(--color-navy-400);
+  --color-text-accent: var(--color-coral-700);
   --color-border-primary: var(--color-navy-100);
   --color-border-accent: var(--color-coral-200);
 
@@ -118,7 +119,7 @@
 /* Base styles */
 html {
   scroll-behavior: smooth;
-  /* Tailwind 4 uses @custom-variant for manual dark mode if needed, 
+  /* Tailwind 4 uses @custom-variant for manual dark mode if needed,
      but here we are manually overriding variables which is very robust */
 }
 
