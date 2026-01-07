@@ -1,4 +1,5 @@
-FROM python:3.12-slim
+# --- Base Stage (shared dependencies) ---
+FROM python:3.12-slim AS base
 
 WORKDIR /app
 
@@ -17,8 +18,6 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy source code
 COPY app/ app/
 COPY rag_docs/ rag_docs/
-COPY tests/ tests/
-COPY pytest.ini pytest.ini
 
 # Ensure directories exist
 RUN mkdir -p faiss_index
@@ -26,5 +25,24 @@ RUN mkdir -p faiss_index
 # Expose port
 EXPOSE 8080
 
-# Run the application with hot reload
+# --- Development Stage ---
+FROM base AS development
+
+# Copy test files for development
+COPY tests/ tests/
+COPY pytest.ini pytest.ini
+
+# Run with hot reload for development
 CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8080", "--reload"]
+
+# --- Production Stage ---
+FROM base AS production
+
+# Pre-build FAISS index at build time (optional, requires GOOGLE_API_KEY at build time)
+# If not pre-built, index will be built on first request
+# ARG GOOGLE_API_KEY
+# ENV GOOGLE_API_KEY=$GOOGLE_API_KEY
+# RUN python -c "from app.services.rag_service import RAGService; RAGService.build_index()" || echo "Skipping index build (API key not provided)"
+
+# Use production-ready uvicorn settings
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8080", "--workers", "1", "--log-level", "info"]
