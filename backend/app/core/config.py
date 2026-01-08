@@ -1,6 +1,7 @@
 """
 Portfolio Backend - Configuration
 """
+
 from pydantic_settings import BaseSettings
 
 

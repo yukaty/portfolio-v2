@@ -1,25 +1,25 @@
 export interface ChatMessage {
-    role: 'user' | 'assistant';
-    content: string;
+  role: 'user' | 'assistant';
+  content: string;
 }
 
 export interface ChatRequest {
-    message: string;
-    history: ChatMessage[];
-    conversation_id?: string;
+  message: string;
+  history: ChatMessage[];
+  conversation_id?: string;
 }
 
 export interface Source {
-    document: string;
-    relevance_score: number;
-    excerpt: string;
+  document: string;
+  relevance_score: number;
+  excerpt: string;
 }
 
 export interface ChatResponse {
-    response: string;
-    conversation_id: string;
-    //** For monitoring and transparency (not displayed to users) **
-    sources: Source[];
-    confidence: number;
-    has_sufficient_context: boolean;
+  response: string;
+  conversation_id: string;
+  //** For monitoring and transparency (not displayed to users) **
+  sources: Source[];
+  confidence: number;
+  has_sufficient_context: boolean;
 }

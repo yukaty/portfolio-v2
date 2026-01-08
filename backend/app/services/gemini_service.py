@@ -1,6 +1,7 @@
 """
 Portfolio Backend - Gemini Service
 """
+
 from google import genai
 from google.genai import types
 

@@ -1,21 +1,21 @@
-import React from "react";
-import { Database, Layout, Cloud, Award } from "lucide-react";
+import React from 'react';
+import { Database, Layout, Cloud, Award } from 'lucide-react';
 
 const skillCategories = [
   {
-    title: "Backend",
+    title: 'Backend',
     icon: Database,
-    skills: ["Java", "Spring Boot", "Python", "FastAPI", "AI Integration"],
+    skills: ['Java', 'Spring Boot', 'Python', 'FastAPI', 'AI Integration'],
   },
   {
-    title: "Frontend",
+    title: 'Frontend',
     icon: Layout,
-    skills: ["TypeScript", "JavaScript", "React", "Next.js", "Tailwind CSS"],
+    skills: ['TypeScript', 'JavaScript', 'React', 'Next.js', 'Tailwind CSS'],
   },
   {
-    title: "DevOps",
+    title: 'DevOps',
     icon: Cloud,
-    skills: ["AWS", "Azure", "Linux", "Docker", "CI/CD Pipelines"],
+    skills: ['AWS', 'Azure', 'Linux', 'Docker', 'CI/CD Pipelines'],
   },
 ];
 
@@ -24,9 +24,7 @@ export const Skills: React.FC = () => {
     <section id="skills" className="py-20 bg-bg-card transition-colors duration-300">
       <div className="container mx-auto px-4 sm:px-6">
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-sans font-bold text-center mb-12">
-          <span className="text-text-primary">
-            Technical
-          </span>{" "}
+          <span className="text-text-primary">Technical</span>{' '}
           <span className="text-coral-500">Skills</span>
         </h2>
 
@@ -56,7 +54,7 @@ export const Skills: React.FC = () => {
                       className="px-3 py-2 sm:py-1.5 bg-bg-card text-text-secondary text-sm font-medium rounded-lg border border-border-primary inline-flex items-center gap-1.5 shadow-sm"
                     >
                       {skill}
-                      {(skill === "AWS" || skill === "Azure") && (
+                      {(skill === 'AWS' || skill === 'Azure') && (
                         <Award className="w-4 h-4 text-coral-500" />
                       )}
                     </span>
@@ -68,6 +66,5 @@ export const Skills: React.FC = () => {
         </div>
       </div>
     </section>
-
   );
 };

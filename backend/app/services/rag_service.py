@@ -2,6 +2,7 @@
 Portfolio Backend - RAG Service
 Direct implementation using FAISS and google.genai
 """
+
 import pickle
 from dataclasses import dataclass
 from pathlib import Path
@@ -44,7 +45,9 @@ class TextSplitter:
     def split(self, text: str, source: str) -> list[Document]:
         """Split text into chunks with overlap."""
         chunks = self._split_recursive(text, self.separators)
-        return [Document(content=chunk, source=source) for chunk in chunks if chunk.strip()]
+        return [
+            Document(content=chunk, source=source) for chunk in chunks if chunk.strip()
+        ]
 
     def _split_recursive(self, text: str, separators: list[str]) -> list[str]:
         """Recursively split text using separators."""
@@ -99,7 +102,11 @@ class TextSplitter:
 
         result = [chunks[0]]
         for i in range(1, len(chunks)):
-            prev_overlap = chunks[i - 1][-self.chunk_overlap :] if len(chunks[i - 1]) > self.chunk_overlap else ""
+            prev_overlap = (
+                chunks[i - 1][-self.chunk_overlap :]
+                if len(chunks[i - 1]) > self.chunk_overlap
+                else ""
+            )
             result.append(prev_overlap + chunks[i])
         return result
 
@@ -128,7 +135,7 @@ class RAGService:
         # Get embeddings
         client = genai.Client(api_key=settings.google_api_key)
         embeddings: list[list[float]] = []
-        
+
         for doc in documents:
             result = client.models.embed_content(
                 model="gemini-embedding-001",
@@ -219,18 +226,22 @@ class RAGService:
                     # Convert L2 distance to similarity score
                     similarity = 1 / (1 + dist)
                     context_parts.append(doc.content)
-                    sources.append({
-                        "document": doc.source,
-                        "relevance_score": round(float(similarity), 2),
-                        "excerpt": doc.content[:200] + "..." if len(doc.content) > 200 else doc.content,
-                    })
+                    sources.append(
+                        {
+                            "document": doc.source,
+                            "relevance_score": round(float(similarity), 2),
+                            "excerpt": doc.content[:200] + "..."
+                            if len(doc.content) > 200
+                            else doc.content,
+                        }
+                    )
 
         context = "\n\n".join(context_parts)
 
         # Build conversation history
         gemini_history = [
             {"role": msg.role, "content": msg.content}
-            for msg in history[-settings.max_conversation_history:]
+            for msg in history[-settings.max_conversation_history :]
         ]
 
         # Generate response
@@ -270,7 +281,9 @@ class RAGService:
             "please contact yuka directly",
         ]
         response_lower = response.lower()
-        indicates_missing = any(phrase in response_lower for phrase in low_confidence_phrases)
+        indicates_missing = any(
+            phrase in response_lower for phrase in low_confidence_phrases
+        )
 
         confidence = avg_relevance if has_docs else 0.0
         if indicates_missing:
@@ -278,5 +291,6 @@ class RAGService:
 
         return {
             "confidence": round(confidence, 2),
-            "has_sufficient_context": has_docs and avg_relevance > settings.confidence_threshold,
+            "has_sufficient_context": has_docs
+            and avg_relevance > settings.confidence_threshold,
         }

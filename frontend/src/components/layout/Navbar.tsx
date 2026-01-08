@@ -1,12 +1,12 @@
-import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
-import { clsx } from "clsx";
+import { useState, useEffect } from 'react';
+import { Menu, X } from 'lucide-react';
+import { clsx } from 'clsx';
 
 const navLinks = [
-  { name: "Skills", href: "#skills" },
-  { name: "Experience", href: "#experience" },
-  { name: "Projects", href: "#projects" },
-  { name: "Contact", href: "#contact" },
+  { name: 'Skills', href: '#skills' },
+  { name: 'Experience', href: '#experience' },
+  { name: 'Projects', href: '#projects' },
+  { name: 'Contact', href: '#contact' },
 ];
 
 export const Navbar: React.FC = () => {
@@ -17,17 +17,15 @@ export const Navbar: React.FC = () => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
     };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
     <nav
       className={clsx(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-md-long",
-        isScrolled
-          ? "bg-bg-app/80 backdrop-blur-lg shadow-md-2 py-4"
-          : "bg-transparent py-6"
+        'fixed top-0 left-0 right-0 z-50 transition-all duration-md-long',
+        isScrolled ? 'bg-bg-app/80 backdrop-blur-lg shadow-md-2 py-4' : 'bg-transparent py-6'
       )}
     >
       <div className="container mx-auto px-4 sm:px-6 flex items-center justify-between">
@@ -83,4 +81,3 @@ export const Navbar: React.FC = () => {
     </nav>
   );
 };
-

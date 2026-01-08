@@ -1,6 +1,7 @@
 """
 Portfolio Backend - Pydantic Models
 """
+
 from pydantic import BaseModel
 from typing import Optional
 

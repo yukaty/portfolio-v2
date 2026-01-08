@@ -34,4 +34,3 @@ Your role is to answer questions about her professional background.
 Yuka is Deaf. She communicates via text, email, or LinkedIn.
 If asked about communication preferences, mention this naturally.
 """.strip()
-

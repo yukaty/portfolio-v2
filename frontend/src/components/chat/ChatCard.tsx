@@ -1,7 +1,17 @@
-import { useState, useRef, useEffect } from "react";
-import { Send, Sparkles, Bot, Briefcase, Smile, BookOpen, HelpCircle, User, HatGlasses } from "lucide-react";
-import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
-import { useChat } from "../../hooks/useChat";
+import { useState, useRef, useEffect } from 'react';
+import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
+import { useChat } from '../../hooks/useChat';
+import {
+  Send,
+  Sparkles,
+  Bot,
+  Briefcase,
+  Smile,
+  BookOpen,
+  HelpCircle,
+  User,
+  HatGlasses,
+} from 'lucide-react';
 
 interface ChatCardProps {
   initialText: string;
@@ -9,7 +19,7 @@ interface ChatCardProps {
 
 export const ChatCard: React.FC<ChatCardProps> = ({ initialText }) => {
   const { messages, isLoading, error, sendMessage } = useChat();
-  const [inputValue, setInputValue] = useState("");
+  const [inputValue, setInputValue] = useState('');
   const chatAreaRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const shouldReduceMotion = useReducedMotion();
@@ -29,7 +39,7 @@ export const ChatCard: React.FC<ChatCardProps> = ({ initialText }) => {
     if (!inputValue.trim() || isLoading) return;
 
     const message = inputValue;
-    setInputValue("");
+    setInputValue('');
     await sendMessage(message);
 
     // Return focus to input after sending
@@ -70,9 +80,7 @@ export const ChatCard: React.FC<ChatCardProps> = ({ initialText }) => {
             <h3 className="font-bold text-text-primary text-base sm:text-lg truncate">
               Yuka's AI Assistant
             </h3>
-            <p className="text-xs text-text-secondary font-medium">
-              Powered by Gemini + RAG
-            </p>
+            <p className="text-xs text-text-secondary font-medium">Powered by Gemini + RAG</p>
           </div>
           <Sparkles className="text-coral w-4 h-4 sm:w-5 sm:h-5 animate-pulse-slow shrink-0" />
         </div>
@@ -104,33 +112,33 @@ export const ChatCard: React.FC<ChatCardProps> = ({ initialText }) => {
                   key={idx}
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className={`flex gap-2 sm:gap-4 ${msg.role === "user" ? "flex-row-reverse" : ""
-                    }`}
+                  className={`flex gap-2 sm:gap-4 ${msg.role === 'user' ? 'flex-row-reverse' : ''}`}
                 >
                   <div
-                    className={`w-8 h-8 sm:w-10 sm:h-10 rounded-full shrink-0 flex items-center justify-center text-white shadow-sm ${msg.role === "user"
-                      ? "bg-coral-500 shadow-md-1"
-                      : "bg-bg-app text-coral-600 border border-border-primary"
-                      }`}
+                    className={`w-8 h-8 sm:w-10 sm:h-10 rounded-full shrink-0 flex items-center justify-center text-white shadow-sm ${
+                      msg.role === 'user'
+                        ? 'bg-coral-500 shadow-md-1'
+                        : 'bg-bg-app text-coral-600 border border-border-primary'
+                    }`}
                   >
-                    {msg.role === "user" ? (
+                    {msg.role === 'user' ? (
                       <User size={16} className="sm:w-5 sm:h-5" />
                     ) : (
                       <Bot size={20} className="sm:w-6 sm:h-6" />
                     )}
                   </div>
                   <div
-                    className={`max-w-[75%] sm:max-w-[80%] p-3 sm:p-4 text-xs sm:text-sm leading-relaxed shadow-sm rounded-2xl ${msg.role === "user"
-                      ? "bg-coral-600 text-white border border-coral-500/30 rounded-tr-none"
-                      : "bg-bg-input/50 text-text-primary border border-border-primary rounded-tl-none"
-                      }`}
+                    className={`max-w-[75%] sm:max-w-[80%] p-3 sm:p-4 text-xs sm:text-sm leading-relaxed shadow-sm rounded-2xl ${
+                      msg.role === 'user'
+                        ? 'bg-coral-600 text-white border border-coral-500/30 rounded-tr-none'
+                        : 'bg-bg-input/50 text-text-primary border border-border-primary rounded-tl-none'
+                    }`}
                   >
                     {msg.content}
                   </div>
                 </motion.div>
               ))}
             </AnimatePresence>
-
 
             {/* Loading Indicator */}
             {isLoading && (
@@ -146,15 +154,15 @@ export const ChatCard: React.FC<ChatCardProps> = ({ initialText }) => {
                 <div className="bg-bg-app/50 border border-border-primary rounded-2xl rounded-tl-none p-3 sm:p-4 text-text-primary text-xs sm:text-sm shadow-sm flex items-center gap-1">
                   <span
                     className="w-1.5 h-1.5 bg-coral-400 rounded-full animate-bounce"
-                    style={{ animationDelay: "0ms" }}
+                    style={{ animationDelay: '0ms' }}
                   />
                   <span
                     className="w-1.5 h-1.5 bg-coral-400 rounded-full animate-bounce"
-                    style={{ animationDelay: "200ms" }}
+                    style={{ animationDelay: '200ms' }}
                   />
                   <span
                     className="w-1.5 h-1.5 bg-coral-400 rounded-full animate-bounce"
-                    style={{ animationDelay: "400ms" }}
+                    style={{ animationDelay: '400ms' }}
                   />
                 </div>
               </motion.div>
@@ -169,10 +177,7 @@ export const ChatCard: React.FC<ChatCardProps> = ({ initialText }) => {
         </div>
 
         {/* Input Area */}
-        <form
-          onSubmit={handleSend}
-          className="relative mb-4 sm:mb-6 shrink-0"
-        >
+        <form onSubmit={handleSend} className="relative mb-4 sm:mb-6 shrink-0">
           <label htmlFor="chat-input" className="sr-only">
             Type your question
           </label>
@@ -191,10 +196,11 @@ export const ChatCard: React.FC<ChatCardProps> = ({ initialText }) => {
             type="submit"
             disabled={!inputValue.trim() || isLoading}
             aria-label="Send message"
-            className={`absolute right-1.5 sm:right-2 top-1/2 -translate-y-1/2 p-2 sm:p-2.5 rounded-lg transition-all shadow-md focus:outline-none focus:ring-2 focus:ring-coral-400 ${!inputValue.trim() || isLoading
-              ? "bg-bg-app text-text-muted cursor-not-allowed"
-              : "bg-coral-600 text-white hover:bg-coral-700"
-              }`}
+            className={`absolute right-1.5 sm:right-2 top-1/2 -translate-y-1/2 p-2 sm:p-2.5 rounded-lg transition-all shadow-md focus:outline-none focus:ring-2 focus:ring-coral-400 ${
+              !inputValue.trim() || isLoading
+                ? 'bg-bg-app text-text-muted cursor-not-allowed'
+                : 'bg-coral-600 text-white hover:bg-coral-700'
+            }`}
           >
             <Send size={14} className="sm:w-4 sm:h-4" />
           </button>
@@ -207,10 +213,10 @@ export const ChatCard: React.FC<ChatCardProps> = ({ initialText }) => {
           </p>
           <div className="grid grid-cols-2 gap-1.5 sm:gap-2">
             {[
-              { icon: Smile, text: "The Pitch" },
-              { icon: Briefcase, text: "Work Style" },
-              { icon: BookOpen, text: "Tech Insights" },
-              { icon: HelpCircle, text: "How This Works?" },
+              { icon: Smile, text: 'The Pitch' },
+              { icon: Briefcase, text: 'Work Style' },
+              { icon: BookOpen, text: 'Tech Insights' },
+              { icon: HelpCircle, text: 'How This Works?' },
             ].map((chip) => (
               <button
                 key={chip.text}
@@ -219,10 +225,7 @@ export const ChatCard: React.FC<ChatCardProps> = ({ initialText }) => {
                 aria-label={`Ask: ${chip.text}`}
                 className="flex items-center gap-1 sm:gap-1.5 px-3 sm:px-4 py-2 bg-bg-card border border-border-accent/30 text-text-accent text-xs sm:text-sm font-semibold rounded-xl hover:bg-coral-50 focus:outline-none focus:ring-2 focus:ring-coral-300 transition-all duration-md-short disabled:opacity-50 disabled:cursor-not-allowed text-left shadow-sm hover:shadow-md"
               >
-                <chip.icon
-                  className="w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0"
-                  aria-hidden="true"
-                />
+                <chip.icon className="w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0" aria-hidden="true" />
                 <span className="whitespace-nowrap truncate">{chip.text}</span>
               </button>
             ))}
@@ -240,7 +243,6 @@ export const ChatCard: React.FC<ChatCardProps> = ({ initialText }) => {
 
       {/* Decorative Card Behind */}
       <div className="absolute top-4 -right-4 w-full h-full bg-linear-to-br from-border-primary to-coral-100/20 rounded-3xl -z-10 rotate-2 transform blur-sm" />
-
     </motion.div>
   );
 };
