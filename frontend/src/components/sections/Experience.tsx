@@ -28,20 +28,20 @@ const featuredExperiences = [
 export const Experience: React.FC = () => {
     return (
         <section id="experience" className="py-20 bg-bg-app transition-colors duration-300">
-            <div className="container mx-auto px-6">
-                <h2 className="text-4xl md:text-5xl font-sans font-bold text-center mb-12">
+            <div className="container mx-auto px-4 sm:px-6">
+                <h2 className="text-3xl sm:text-4xl md:text-5xl font-sans font-bold text-center mb-12">
                     <span className="text-text-primary">
                         Career
                     </span>{' '}
                     <span className="text-coral-500">Highlights</span>
                 </h2>
 
-                <div className="max-w-4xl mx-auto space-y-6">
+                <div className="max-w-4xl mx-auto space-y-4 sm:space-y-6">
                     {/* Featured Cards */}
                     {featuredExperiences.map((exp, index) => (
                         <div
                             key={index}
-                            className="bg-bg-card p-8 rounded-2xl shadow-md-2 border border-border-primary transition-colors duration-300"
+                            className="bg-bg-card p-5 sm:p-6 md:p-8 rounded-2xl shadow-md-2 border border-border-primary transition-colors duration-300"
                         >
                             <div className="flex flex-col md:flex-row md:items-start justify-between mb-4">
                                 <div>
@@ -66,7 +66,7 @@ export const Experience: React.FC = () => {
                                 {exp.tech.map((t) => (
                                     <span
                                         key={t}
-                                        className="text-xs font-semibold text-text-primary bg-bg-app border border-border-primary px-3 py-1.5 rounded-lg shadow-sm"
+                                        className="text-xs sm:text-sm font-semibold text-text-primary bg-bg-app border border-border-primary px-3 py-2 sm:py-1.5 rounded-lg shadow-sm"
                                     >
                                         {t}
                                     </span>
@@ -80,7 +80,7 @@ export const Experience: React.FC = () => {
                             href="https://www.linkedin.com/in/yuka-tamura/"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center gap-2 text-text-primary font-semibold hover:text-coral-500 transition-colors duration-md-short border-b-2 border-border-primary hover:border-coral-400 pb-1"
+                            className="inline-flex items-center gap-2 text-text-primary font-semibold hover:text-coral-500 transition-colors duration-md-short border-b-2 border-border-primary hover:border-coral-400 py-2 -my-2 pb-1"
                         >
                             View Full History on LinkedIn <ExternalLink size={18} />
                         </a>

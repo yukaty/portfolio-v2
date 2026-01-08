@@ -22,15 +22,15 @@ const skillCategories = [
 export const Skills: React.FC = () => {
   return (
     <section id="skills" className="py-20 bg-bg-card transition-colors duration-300">
-      <div className="container mx-auto px-6">
-        <h2 className="text-4xl md:text-5xl font-sans font-bold text-center mb-12">
+      <div className="container mx-auto px-4 sm:px-6">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-sans font-bold text-center mb-12">
           <span className="text-text-primary">
             Technical
           </span>{" "}
           <span className="text-coral-500">Skills</span>
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 max-w-6xl mx-auto">
           {skillCategories.map((category) => {
             const Icon = category.icon;
             return (
@@ -53,7 +53,7 @@ export const Skills: React.FC = () => {
                   {category.skills.map((skill) => (
                     <span
                       key={skill}
-                      className="px-3 py-1.5 bg-bg-card text-text-secondary text-sm font-medium rounded-lg border border-border-primary inline-flex items-center gap-1.5 shadow-sm"
+                      className="px-3 py-2 sm:py-1.5 bg-bg-card text-text-secondary text-sm font-medium rounded-lg border border-border-primary inline-flex items-center gap-1.5 shadow-sm"
                     >
                       {skill}
                       {(skill === "AWS" || skill === "Azure") && (

@@ -30,10 +30,10 @@ export const Navbar: React.FC = () => {
           : "bg-transparent py-6"
       )}
     >
-      <div className="container mx-auto px-6 flex items-center justify-between">
+      <div className="container mx-auto px-4 sm:px-6 flex items-center justify-between">
         <a
           href="#"
-          className="text-4xl md:text-3xl font-display font-extrabold transition-all duration-md-medium group"
+          className="text-3xl md:text-4xl font-display font-extrabold transition-all duration-md-medium group"
         >
           <span className="text-text-primary">Y</span>
           <span className="text-coral-500">T</span>
