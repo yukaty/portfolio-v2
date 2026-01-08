@@ -6,6 +6,7 @@ on:
     paths:
       - 'backend/**'
       - '.github/workflows/deploy-backend.yml'
+  workflow_dispatch:
 
 env:
   PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
@@ -52,7 +53,7 @@ jobs:
             --allow-unauthenticated \
             --service-account ${{ secrets.GCP_SERVICE_ACCOUNT }} \
             --set-secrets="GOOGLE_API_KEY=google-api-key:latest" \
-            --set-env-vars="CONFIDENCE_THRESHOLD=0.7,ALLOWED_ORIGINS=https://portfolio-frontend-*-uc.a.run.app" \
+            --set-env-vars="CONFIDENCE_THRESHOLD=0.7,ALLOWED_ORIGINS=${{ secrets.FRONTEND_URL }}" \
             --port 8080 \
             --memory 512Mi \
             --cpu 1 \
@@ -60,4 +61,4 @@ jobs:
             --timeout 60 \
             --min-instances 0 \
             --max-instances 5 \
-            --labels=app=portfolio,component=backend,env=production,dev-tutorial=blog-devcommunity2026
+            --labels=app=portfolio,component=backend,env=production

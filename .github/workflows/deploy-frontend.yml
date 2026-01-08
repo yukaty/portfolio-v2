@@ -6,6 +6,7 @@ on:
     paths:
       - 'frontend/**'
       - '.github/workflows/deploy-frontend.yml'
+  workflow_dispatch:
 
 env:
   PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
@@ -60,4 +61,4 @@ jobs:
             --timeout 10 \
             --min-instances 0 \
             --max-instances 10 \
-            --labels=app=portfolio,component=frontend,env=production,dev-tutorial=blog-devcommunity2026
+            --labels=app=portfolio,component=frontend,env=production
